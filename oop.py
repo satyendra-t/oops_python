@@ -1,6 +1,7 @@
 class Employee:
 
     raise_amount = 1.20
+    num_of_employees = 0
 
     #Constructor
     def __init__(self, first_name, last_name, pay):
@@ -8,6 +9,8 @@ class Employee:
         self.last_name = last_name
         self.pay = pay
         self.email = first_name + '.' + last_name + '@gmail.com'
+
+        Employee.num_of_employees += 1
 
     #class Method
     def full_name(self):
@@ -65,3 +68,18 @@ print(emp_2.pay)
 emp_2.apply_raise()
 print(emp_2.pay)
 print(Employee.raise_amount)
+
+print(emp_2.__dict__)
+
+#updating class variable through instance
+emp_2.raise_amount = 1.30
+print(emp_2.raise_amount)
+print(Employee.raise_amount)
+
+#updating class variable through class
+Employee.raise_amount = 1.50
+print(emp_2.raise_amount)
+print(Employee.raise_amount)
+
+
+print(Employee.num_of_employees)
